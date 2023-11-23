@@ -2,7 +2,6 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
     'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
     'Noto Color Emoji';
-  /* font-family: 'PingFang SC'; */
   scroll-behavior: none;
 }
 
@@ -38,8 +37,8 @@ a {
 }
 
 .header-logo {
-  margin-left: 40px;
   display: flex;
+  margin-left: 40px;
 }
 
 .header-title {
@@ -60,13 +59,20 @@ a {
   height: 40px;
   margin-top: 2px;
   margin-left: 216px;
+  box-sizing: border-box;
   background-color: #eee;
+  border: 2px solid transparent;
   border-radius: 20px;
 }
 
 .header-search:focus-within {
   background-color: #fff;
+  /* 问题，解决bug：focus但没有hover时，border消失 */
+  border: 2px solid #999;
+}
 
+.header-search:hover {
+  border: 2px #999 solid;
 }
 
 .header-search-icon {
@@ -75,7 +81,7 @@ a {
   display: flex;
   width: 24px;
   height: 24px;
-  margin-left: 15px;
+  margin-left: 13px;
 }
 
 .header-search-input {
@@ -89,14 +95,18 @@ a {
   padding: 0;
 }
 
+.header-search-input::placeholder {
+  color: #999;
+}
+
 .header-search-scan {
   display: flex;
-  margin-right: 15px;
+  margin-right: 13px;
 }
 
 .header-right {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 .header-navlist {
@@ -106,6 +116,10 @@ a {
   font-size: 16px;
   line-height: 22px;
   color: #333;
+}
+
+.header-nav-item {
+  flex-shrink: 0;
 }
 
 .header-nav-item.active {
@@ -137,10 +151,12 @@ a {
   display: flex;
   /* 问题,原设计中,不是居中,有意为之吗 */
   margin-top: 2px;
+  transform: rotate(0deg);
+  transition: transform .3s ease;
 }
 
-.header-user-more svg{
-  /* transform: rotate(180d eg); */
+.header-user:hover .header-user-more {
+  transform: rotate(180deg);
 }
 
 .header-user-info {
@@ -172,14 +188,12 @@ a {
 
 .header-user-info::before {
   /* 问题，为什么这个三角消失了 */
-  content: "1111";
+  content: "";
   position: absolute;
-  z-index: 10;
+  z-index: 100;
   left: 50%;
-  width: 100px;
-  height: 10px;
-  color: #000;
-  background-color: #222;
+  width: 0px;
+  height: 0px;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
   border-bottom: 8px solid red;

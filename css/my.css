@@ -6,7 +6,6 @@ input {
 
 .info-section {
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   display: flex;
   width: 519px;
@@ -19,8 +18,8 @@ input {
 }
 
 .info-name {
-  margin-top: 80px;
   width: 100%;
+  margin-top: 80px;
   margin-bottom: 40px;
 }
 
@@ -33,10 +32,10 @@ input {
 }
 
 .info-name-input {
-  margin-top: 10px;
   width: 100%;
   height: 40px;
   padding: 10px;
+  margin-top: 10px;
   line-height: 20px;
   box-sizing: border-box;
 }
@@ -64,18 +63,18 @@ input {
 .info-phone-btn,
 .info-submit {
   padding: 10px 22px;
-  border-radius: 2px;
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
   color: #fff;
   background-color: #333;
+  border-radius: 2px;
   cursor: pointer;
 }
 
 .info-intro {
-  margin: 40px 0;
   width: 100%;
+  margin: 40px 0;
 }
 
 .info-intro-text {
@@ -89,7 +88,6 @@ input {
   padding: 10px;
   box-sizing: border-box;
   border: 1px solid #efefef;
-
 }
 
 .info-intro-input {
@@ -113,6 +111,6 @@ input {
   color: #666;
 }
 
-.info-submit{
+.info-submit {
   margin-left: auto;
 }
