@@ -1,186 +1,6 @@
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-    'Noto Color Emoji';
-  /* font-family: 'PingFang SC'; */
-  scroll-behavior: none;
-}
-
-body::-webkit-scrollbar {
-  display: none;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.page-header svg {
-  color: red;
-}
-
-.page-header {
-  align-items: center;
-  justify-content: space-between;
-  display: flex;
-  width: 100%;
-  height: 80px;
-  box-sizing: border-box;
-  background-color: pink;
-  border-bottom: 1px #efefef solid;
-}
-
-.header-left {
-  align-items: center;
-  display: flex;
-}
-
-.header-logo {
-  margin-left: 40px;
-  display: flex;
-}
-
-.header-title {
-  top: 27px;
-  left: 80px;
-  width: 54px;
-  height: 25px;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 25px;
-  color: #333;
-}
-
-.header-search {
-  align-items: center;
-  display: flex;
-  width: 600px;
-  height: 40px;
-  margin-top: 2px;
-  margin-left: 216px;
-  background-color: #eee;
-  border-radius: 20px;
-}
-
-.header-search:focus-within {
-  background-color: #fff;
-
-}
-
-.header-search-icon {
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  width: 24px;
-  height: 24px;
-  margin-left: 15px;
-}
-
-.header-search-input {
-  flex: 1;
-  margin-left: 10px;
-  font-size: 14px;
-  line-height: 20px;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  padding: 0;
-}
-
-.header-search-scan {
-  display: flex;
-  margin-right: 15px;
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-}
-
-.header-navlist {
-  column-gap: 40px;
-  display: flex;
-  margin-right: 60px;
-  font-size: 16px;
-  line-height: 22px;
-  color: #333;
-}
-
-.header-nav-item.active {
-  position: relative;
-}
-
-.header-nav-item.active::before {
-  content: "";
-  position: absolute;
-  bottom: -29px;
-  width: 100%;
-  height: 2px;
-  background-color: #222;
-}
-
-.header-user {
-  align-items: center;
-  column-gap: 10px;
-  display: flex;
-  margin-right: 40px;
-  cursor: pointer;
-}
-
-.header-user-avatar {
-  display: flex;
-}
-
-.header-user-more {
-  display: flex;
-  /* 问题,原设计中,不是居中,有意为之吗 */
-  margin-top: 2px;
-}
-
-.header-user-info {
-  position: absolute;
-  top: 70px;
-  right: 40px;
-  width: 96px;
-  height: 0px;
-  padding: 0 10px;
-  box-sizing: border-box;
-  font-size: 14px;
-  line-height: 20px;
-  color: #666;
-  background-color: #fff;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
-  overflow: hidden;
-  transition: all .3s ease;
-}
-
-.header-user-info__about {
-  padding: 20px 10px 10px;
-  border-bottom: 1px solid #efefef;
-}
-
-.header-user-info__logout {
-  padding: 10px 10px 0px;
-}
-
-.header-user-info::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-bottom: 8px solid #fff;
-  transform: translateX(-50%) translateY(-100%);
-}
-
-.header-user:hover .header-user-info,
-.header-user-info:hover {
-  height: 100px;
-}
-
 .page-body {
   display: flex;
-  height: 1000px;
+  height: calc(100vh - 80px);
 }
 
 .sidebar-section {
@@ -257,18 +77,16 @@ a {
 }
 
 .opus-list {
-  grid-auto-flow: row dense;
   grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 290px);
   display: grid;
+  gap: 20px;
 }
 
 .opus-item {
   position: relative;
-}
-
-.opus-item:nth-child(7) {
-  width: 100%;
-  height: 20px;
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .opus-item-overlay {
@@ -278,10 +96,16 @@ a {
   justify-content: space-between;
   display: flex;
   width: 100%;
-  height: 70%;
+  height: 100%;
   padding: 20px 15px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), url(<path-to-image>), lightgray 50% / cover no-repeat, #C4C4C4;
-  background-color: pink;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+
+.opus-item:hover .opus-item-overlay {
+  opacity: 1;
 }
 
 .opus-item-overlay__collect {
@@ -321,4 +145,174 @@ a {
 
 .opus-item-overlay__download svg {
   margin-right: 2px;
+}
+
+.page-login {
+  position: absolute;
+  z-index: 11;
+  left: 50%;
+  top: 50%;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.page-login.active {
+  display: flex;
+}
+
+.login-container {
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  width: 599px;
+  height: 521px;
+  margin: 0 auto;
+  background-color: #fff
+}
+
+.login-logo {
+  margin: 40px 0;
+  display: flex;
+}
+
+.login-ways {
+  display: flex;
+  gap: 80px;
+}
+
+
+.login-box {
+  display: none;
+}
+
+.login-box.active {
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+
+.login-way {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 25px;
+  color: #999;
+}
+
+.login-way.active {
+  color: #333;
+}
+
+.login-cover {
+  position: relative;
+  display: flex;
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+.login-cover-overlay {
+  position: absolute;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+
+.login-cover:hover .login-cover-overlay {
+  opacity: 1;
+}
+
+.login-cover__overlay-main {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.login-cover__overlay-sub {
+  font-size: 12px;
+  line-height: 17px;
+}
+
+.login-box-text {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.login-content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.login-number,
+.login-verify {
+  font-size: 14px;
+  line-height: 20px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.login-numberinput {
+  width: 400px;
+  padding: 10px;
+  box-sizing: border-box;
+  height: 40px;
+  border: 1px solid #efefef;
+  border-radius: 2px;
+  outline: none;
+  margin-bottom: 20px;
+}
+
+.login-verifyinput {
+  display: flex;
+  width: 400px;
+  border: 1px solid #efefef;
+  box-sizing: border-box;
+}
+
+.login-verify-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px;
+}
+
+.login-verify-submit {
+  width: 70px;
+  padding: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ccc;
+  border-left: 1px solid #efefef;
+  cursor: pointer;
+}
+
+.login-box:hover .login-verify-submit {
+  color: #333;
+}
+
+.login-box-submit {
+  margin-top: 60px;
+  width: 400px;
+  height: 40px;
+  padding: 10px 22px;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #fff;
+  text-align: center;
+  background-color: #333;
+  cursor: pointer;
 }

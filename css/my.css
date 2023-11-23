@@ -1,0 +1,118 @@
+input {
+  border: 1px solid #efefef;
+  border-radius: 2px;
+  outline: none;
+}
+
+.info-section {
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  display: flex;
+  width: 519px;
+  margin: 0 auto;
+  margin-top: 80px;
+}
+
+.info-avatar {
+  display: flex;
+}
+
+.info-name {
+  margin-top: 80px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.info-name-text,
+.info-phone-text,
+.info-intro-text {
+  font-size: 14px;
+  line-height: 20px;
+  color: #666;
+}
+
+.info-name-input {
+  margin-top: 10px;
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  line-height: 20px;
+  box-sizing: border-box;
+}
+
+.info-phone {
+  width: 100%;
+}
+
+.info-phone-wrapper {
+  display: flex;
+  margin-top: 10px;
+}
+
+.info-phone-input {
+  flex: 1;
+  padding: 10px;
+  color: #999;
+  background-color: #efefef;
+}
+
+.info-phone-btn {
+  margin-left: 20px;
+}
+
+.info-phone-btn,
+.info-submit {
+  padding: 10px 22px;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #fff;
+  background-color: #333;
+  cursor: pointer;
+}
+
+.info-intro {
+  margin: 40px 0;
+  width: 100%;
+}
+
+.info-intro-text {
+  margin-bottom: 6px;
+}
+
+.input-intro-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #efefef;
+
+}
+
+.info-intro-input {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333;
+  border: none;
+  outline: none;
+  resize: none;
+}
+
+.info-intro-limit {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #666;
+}
+
+.info-submit{
+  margin-left: auto;
+}
