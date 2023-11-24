@@ -1,9 +1,16 @@
-.topic-section {
+.topic-section,
+.collection-section {
   position: relative;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.topic-container {
   margin: 40px 350px 30px;
 }
 
 .topic-wrapper {
+  position: relative;
   display: flex;
 }
 
@@ -81,24 +88,26 @@
   color: #999;
 }
 
-.collection-section {
+.collection-container {
   margin: 0 350px;
 }
 
 .collection-list {
   flex-wrap: wrap;
   gap: 20px;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .collection-item {
   position: relative;
-  width: 290px;
 }
 
 .collection-item-cover {
-  width: 290px;
-  height: 300px;
+  /* 响应式 */
+  width: 100%;
+  /* width: 290px; */
+  /* height: 300px; */
   overflow: hidden;
 }
 
@@ -160,4 +169,15 @@
   font-size: 12px;
   line-height: 17px;
   color: #666;
+}
+
+
+@media screen and (max-width: 1481px) {
+
+  .topic-container,
+  .collection-container {
+    margin-left: 150px;
+    margin-right: 150px;
+  }
+
 }

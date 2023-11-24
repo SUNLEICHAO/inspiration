@@ -3,6 +3,7 @@ body {
     'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
     'Noto Color Emoji';
   scroll-behavior: none;
+  min-width: 1200px;
 }
 
 body::-webkit-scrollbar {
@@ -16,19 +17,23 @@ a {
 
 /* 以上为通用格式 */
 
-.page-header svg {
-  color: red;
+.page-header {
+  border-bottom: 1px #efefef solid;
 }
 
-.page-header {
+.header-container {
   align-items: center;
   justify-content: space-between;
   display: flex;
-  width: 100%;
+  max-width: 1920px;
   height: 80px;
+  margin: 0 auto;
   box-sizing: border-box;
   background-color: #fff;
-  border-bottom: 1px #efefef solid;
+}
+
+.header-container>* {
+  flex: 1;
 }
 
 .header-left {
@@ -50,15 +55,18 @@ a {
   font-weight: 400;
   line-height: 25px;
   color: #333;
+  cursor: pointer;
 }
 
 .header-search {
+  flex: 1;
   align-items: center;
   display: flex;
   width: 600px;
   height: 40px;
-  margin-top: 2px;
-  margin-left: 216px;
+  margin: 2px 40px 0;
+  /* margin-left: 216px; */
+
   box-sizing: border-box;
   background-color: #eee;
   border: 2px solid transparent;
@@ -102,11 +110,13 @@ a {
 .header-search-scan {
   display: flex;
   margin-right: 13px;
+  cursor: pointer;
 }
 
 .header-right {
-  align-items: center;
   display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .header-navlist {
